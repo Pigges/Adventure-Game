@@ -21,7 +21,7 @@ def show(attr, inventory):
         print(f"Cannot show '{attr}'\n'show help' for options")
 
 
-def help(*_):
+def help_command(*_):
     keys = list(commands.keys())
     resp = "Commands:"
     for key in keys:
@@ -36,7 +36,7 @@ def stop_game(*_):
 
 commands = {
     "show": show,
-    "help": help,
+    "help": help_command,
     "exit": stop_game
 }
 

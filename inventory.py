@@ -1,9 +1,36 @@
 from item_types import types
 from table import show_table
 from color import color
+import json
 
 
-def table_inv(cont):
+def load():
+    """
+    :info Loads all items from './data/inv.data'
+    :return: [object, object] -> items
+    """
+    items = []
+    file = open("./data/inv.data", "r", encoding="utf-8")
+    for line in file.readlines():
+        line = line.strip('\n')
+        item = json.loads(line)
+        item_type = item['type']
+        item.pop('type')
+        items.append(types[item_type](item))
+
+    file.close()
+    return items
+
+
+def save(inv: list):
+    file = open("./data/inv.data", "w", encoding="utf-8")
+    for item in inv:
+        file.writelines(json.dumps(item.__dict__)+"\n")
+
+    file.close()
+
+
+def table_inv(cont: dict):
     items = []
 
     for i in range(len(cont)):
@@ -12,13 +39,13 @@ def table_inv(cont):
         item_id.update(item)
         items.append(item_id)
 
-    return show_table(items, "Inventory:")
+    return show_table(items, "Here's your inventory:")
 
 
 class Inventory:
     def __init__(self):
         # print("Inventory initialized!")
-        self.items = []
+        self.items = load()
 
     def add_item(self, item_type, item):
         self.items.append(types[item_type](item))
@@ -26,3 +53,6 @@ class Inventory:
 
     def show(self):
         return table_inv(self.items)
+
+    def save(self):
+        save(self.items)
