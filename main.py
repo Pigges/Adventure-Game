@@ -1,3 +1,4 @@
+from intro import intro
 from start_menu import start
 from player import Player
 from commands import commands
@@ -18,10 +19,11 @@ def act():
         commands[cmd.split(' ')[0]](attr, player.inventory)
         return cmd
     else:
-        print("Command does not exist!\n'help' for list of commands")
+        print("Command does not exist!\n" + color('yellow', "'help'") + " for list of commands")
         return None
 
 
+intro()
 start()
 
 while True:

@@ -16,7 +16,7 @@ class Tool:
         return self.content
 
     def info(self):
-        return {"name": self.name, "action": self.action, "damage": self.damage}
+        return {"name": self.name, "action": self.action, "type": self.type, "damage": self.damage}
 
     def save(self):
         return f'"{self.type}", "{self.name}", "{self.action}", "{self.content}"'

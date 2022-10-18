@@ -15,7 +15,8 @@ class Text:
         return self.content
 
     def info(self):
-        return {"name": self.name, "action": self.action, "type": self.type}
+        # return {"name": self.name, "action": self.action, "type": self.type}
+        return self.__dict__
 
     def save(self):
         return f'"{self.type}", "{self.name}", "{self.action}", "{self.content}"'
