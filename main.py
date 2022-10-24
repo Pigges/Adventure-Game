@@ -6,7 +6,6 @@ from table import show_table
 from color import color
 
 
-# inventory = Inventory()
 player = Player()
 last = ""
 
