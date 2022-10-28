@@ -1,7 +1,8 @@
 import sys
 
 
-def show(attr, inventory):
+def show(attr, story):
+    inventory = story.player.inventory
     if len(attr) > 0:
         attr = attr[0]
     else:

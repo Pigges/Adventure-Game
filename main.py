@@ -1,12 +1,10 @@
 from intro import intro
 from start_menu import start
-from player import Player
+from story import Story
 from commands import commands
 from table import show_table
 from color import color
 
-
-player = Player()
 last = ""
 
 
@@ -15,7 +13,7 @@ def act():
     if cmd.split(' ')[0] in commands:
         attr = cmd.split(' ')
         attr.pop(0)
-        commands[cmd.split(' ')[0]](attr, player.inventory)
+        commands[cmd.split(' ')[0]](attr, story)
         return cmd
     else:
         print("Command does not exist!\n" + color('yellow', "'help'") + " for list of commands")
@@ -23,14 +21,15 @@ def act():
 
 
 intro()
-start()
+story = Story()
 
 while True:
+    story.play()
     new_last = act()
     if new_last:
         last = new_last
 
-    player.inventory.save()
+    story.player.inventory.save()
 
     print(last)
 
