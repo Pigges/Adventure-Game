@@ -22,6 +22,24 @@ def show(attr, story):
         print(f"Cannot show '{attr}'\n'show help' for options")
 
 
+def opener(attr, story):
+    # Shortcut for player inventory
+    inventory = story.player.inventory
+    # If attributes is bigger than 0 just take the first one
+    if len(attr) > 0:
+        attr = attr[0]
+    # Otherwise just set attribute to empty string for ease later
+    else:
+        attr = ""
+    actions = {}
+    # Go through the elements of the room currently in and see what can be opened
+    for item in story.content:
+        if item['interect']:
+            inventory.add_item('tool', item['content'].collect())
+            item['interect'] = False
+
+
+
 def help_command(*_):
     keys = list(commands.keys())
     resp = "Commands:"
@@ -37,6 +55,7 @@ def stop_game(*_):
 
 commands = {
     "show": show,
+    "open": opener,
     "help": help_command,
     "exit": stop_game
 }
