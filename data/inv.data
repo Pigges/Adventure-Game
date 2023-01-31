@@ -1,9 +1,3 @@
 {"type": "text", "name": "Letter", "action": "read", "content": "Hello and welcome to this game"}
 {"type": "text", "name": "Notice", "action": "read", "content": "You owe me money, give me money now or i throw you off a cliff!"}
 {"type": "tool", "name": "Laser-Sword", "action": "use", "damage": 10, "content": "sword"}
-{"type": "tool", "name": "Laser-Sword", "action": "use", "damage": 10, "content": "sword"}
-{"type": "tool", "name": "Laser-Sword", "action": "use", "damage": 10, "content": "sword"}
-{"type": "tool", "name": "Laser-Sword", "action": "use", "damage": 10, "content": "sword"}
-{"type": "tool", "name": "Laser-Sword", "action": "use", "damage": 10, "content": "sword"}
-{"type": "tool", "name": "Laser-Sword", "action": "use", "damage": 10, "content": "sword"}
-{"type": "tool", "name": "Laser-Sword", "action": "use", "damage": 10, "content": "sword"}

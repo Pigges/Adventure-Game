@@ -34,9 +34,15 @@ def opener(attr, story):
     actions = {}
     # Go through the elements of the room currently in and see what can be opened
     for item in story.content:
-        if item['interect']:
+        print(item['content'].interact)
+        if item['name'] == attr and item['content'].interact == True:
             inventory.add_item('tool', item['content'].collect())
-            item['interect'] = False
+            item['content'].interact = False
+            break
+        else:
+            continue
+    else:
+        print(f"The {attr} can't be opened")
 
 
 
